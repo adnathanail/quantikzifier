@@ -1,5 +1,5 @@
 #!/bin/bash
-# Usage: ./quantikzify.sh inputfile.tex
+# Usage: ./entrypoint.sh inputfile.tex
 
 set -e
 
@@ -14,19 +14,11 @@ BASENAME="$(basename "$INPUTFILE" .tex)"
 # Copy input to standard name
 cp "data/$INPUTFILE" "quantikz_input.tex"
 
-ls
-
 # Run pdflatex to generate PDF
 pdflatex "template.tex"
 
-# # Remove auxiliary files
-# rm quantikz_input.tex template.aux template.log
-
 # Convert PDF to PNG
 convert -density 300 "template.pdf" -quality 100 "template.png"
-
-# # Remove intermediate files
-# rm template.pdf
 
 # Rename PNG to match input file base name,
 #   and put it back in the data directory (volume mount)
