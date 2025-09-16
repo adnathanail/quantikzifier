@@ -21,7 +21,7 @@ WORKDIR /work
 
 # Copy the script and make it executable
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN chmod +x /usr/local/bin/quentrypointantikzify.sh
+RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Copy the LaTeX template
 COPY template.tex /work/template.tex
