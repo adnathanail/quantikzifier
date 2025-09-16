@@ -19,6 +19,21 @@ docker run --rm -v ./test:/work/data adnathanail/qzfr test1.tex
 
 To run this on any local file, replace `./test` with the path to the _folder_ containing your tex file(s), and replace `test1.tex` with the name of the tex file you would like to process
 
+### M1 Mac usage
+
+The Docker image is built for the `linux/amd64` platform.
+To have Docker emulate this, specify the platform with an environment variable
+```shell
+DOCKER_DEFAULT_PLATFORM=linux/amd64 docker run --rm -v ./test:/work/data adnathanail/qzfr test1.tex
+```
+
+If you want this to persist, add the following to your shell's config file (e.g. `~/.zshrc` on macOS)
+```shell
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+```
+
+**Note this will affect all usage of Docker**
+
 ## Local usage
 ```shell
 docker build -t qzfr .
