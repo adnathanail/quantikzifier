@@ -1,0 +1,32 @@
+\begin{quantikz}
+    \lstick{$\ket{0}$} &
+        \qw &
+        \gate{H}	 &
+        \gate[wires=5, nwires={3}]{u_{f}} &
+        \gate{H} &
+        \meter{} \\
+    \lstick{$| 0 \rangle$} &
+        \qw &
+        \gate{H}	 &
+        &
+        \gate{H} &
+        \meter{} \\
+    &
+        &
+        \gate[style={opacity=0}, nwires={1}]{\vdots}	 &
+        &
+        \gate[style={opacity=0}, nwires={1}]{\vdots}	 &
+        \\
+    \lstick{$| 0 \rangle$} &
+        \qw &
+        \gate{H}	 &
+        &
+        \gate{H} &
+        \meter{} \\
+    \lstick{$| 0 \rangle$} &
+        \gate{X} &
+        \gate{H}	 &
+        \qw &
+        \qw &
+        \\
+\end{quantikz}

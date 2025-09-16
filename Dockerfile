@@ -12,16 +12,24 @@ RUN tlmgr install standalone \
 # Install necessary math packages
     && tlmgr install braket
 
-WORKDIR /data
+# Install ImageMagick for PDF to PNG conversion
+RUN apt-get update \
+    && apt-get install -y imagemagick \
+    && apt-get clean
 
-# Default command: compile main.tex to main.pdf
-ENV LATEX_FILE=main.tex
-CMD ["pdflatex", "${LATEX_FILE}"]
+WORKDIR /work
+
+# Copy the script and make it executable
+COPY entrypoint.sh /usr/local/bin/entrypoint.sh
+RUN chmod +x /usr/local/bin/quentrypointantikzify.sh
+
+# Copy the LaTeX template
+COPY template.tex /work/template.tex
+
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 
 # Usage instructions
 # To build the Docker image, run:
-# docker build -t latexer .
+# docker build -t qzfr .
 # To compile a LaTeX document, run:
-# docker run --rm -v $(pwd):/data latexer
-# This will compile main.tex in the current directory and output main.pdf
-# You can change main.tex to any other .tex file by modifying the CMD in the Dockerfile or by overriding it in the docker run command.
+# docker run --rm -v PATH_TO_YOUR_TEX_FILES:/work/data qzfr YOUR_FILE.tex
