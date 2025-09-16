@@ -1,4 +1,4 @@
-# quantikzifier
+# qzfr (quantikzifier)
 Docker image to quickly compile quantikz code into images
 
 This is solving a problem that maybe only I have, and it may be solely to do with my broken local LaTex setup
