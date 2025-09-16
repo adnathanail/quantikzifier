@@ -4,6 +4,10 @@ on:
   push:
     branches: [ "main" ]
 
+concurrency: # Cancel if I push to the same branch
+  group: ${{ format('ci-{0}', github.ref) }}
+  cancel-in-progress: true
+
 env:
   REGISTRY: docker.io
   IMAGE_NAME: adnathanail/qzfr
