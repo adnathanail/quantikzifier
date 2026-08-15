@@ -32,6 +32,14 @@ If there aren't any, the bundled ZX styles from [`tikzit/`](tikzit) are used ins
 
 You don't need to supply `tikzit.sty`, it ships with the image.
 
+### Editing TikZit files in VS Code
+
+TikZit provide a lovely [VS Code extension](https://github.com/tikzit/vstikzit) for editing `.tikz` files directly in the editor.
+However, if you open the example in this repo, you will see that the nodes are all transparent.
+This is because TikZit expects to be run in the root of a LaTeX repository, with its style file in the root.
+
+To make your editing experience nicer, copy [./tikzit/circuits.tikzstyles](./tikzit/circuits.tikzstyles) into the root of your repository.
+
 ## Docker Hub usage
 
 I have shared this on Docker Hub for easy local usage
