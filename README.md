@@ -19,9 +19,9 @@ Either way you only supply the diagram itself, the surrounding document boilerpl
 
 Here are examples of the generated PNGs:
 
-![Example quantum circuit](test/test1.png)
-
-![Example ZX diagram](test/test2.png)
+| Example quantum circuit | Example ZX diagram |
+| ----------------------- | ------------------ |
+| ![Example quantum circuit](test/test1.png) | ![Example ZX diagram](test/test2.png) |
 
 ### TikZiT style files
 
