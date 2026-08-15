@@ -3,6 +3,11 @@ name: Docker
 on:
   push:
     branches: [ "main" ]
+    paths-ignore: # Don't rebuild the image for changes that can't affect it
+      - '**.md'
+      - 'LICENSE'
+      - '.gitignore'
+  workflow_dispatch: # Allow publishing manually if a skipped build needs to go out
 
 concurrency: # Cancel if I push to the same branch
   group: ${{ format('ci-{0}', github.ref) }}
